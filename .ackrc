@@ -1,0 +1,21 @@
+# add .tpl for smarty files
+--type-set=smarty=.tpl
+--type-set=tpl=.tpl
+
+# plain text CSV files
+--type-set=csv=.txt,.csv,.tsv
+
+# CSS/LESS
+--type-set=css=.css,.less
+
+# add .inc for include files
+--type-set=include=.inc
+--type-set=inc=.inc
+
+# add .conf for include files
+--type-set=conf=.conf
+
+# the usual (search with ack --type=web string)
+--type-set=web=.tpl,.shtml,.php
+--type-set=js=.js
+--type-set=javascript=.js
