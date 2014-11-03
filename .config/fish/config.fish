@@ -1,7 +1,8 @@
 set fish_greeting ""
 
 # Include binaries from MAMP
-set PATH $PATH /Applications/MAMP/Library/bin/ /Applications/MAMP/bin/php/php5.2.17/bin /Applications/MAMP/bin/php/php5.3.6/bin /Applications/MAMP/bin/php/php5.4.4/bin
+# set PATH $PATH /Applications/MAMP/Library/bin/ /Applications/MAMP/bin/php/php5.2.17/bin /Applications/MAMP/bin/php/php5.3.6/bin /Applications/MAMP/bin/php/php5.4.4/bin
+set PATH ~/.gem/ruby/2.0.0/bin ~/.composer/vendor/bin $PATH 
 
 # http://mesmor.com/2012/03/18/akamai-pragma-debug-headers/
 # https://gist.github.com/2710596
@@ -31,35 +32,6 @@ alias secretagent="mplayer -playlist http://somafm.com/secretagent130.pls" # Som
 alias wmcn="mplayer -playlist http://216.250.175.13:8000/listen.pls" # WMCN 91.7 - http://wmcn.tumblr.com/
 
 
-
-# # https://wiki.archlinux.org/index.php/Fish
-# # Fish git prompt
-# set __fish_git_prompt_showdirtystate 'yes'
-# set __fish_git_prompt_showstashstate 'yes'
-# set __fish_git_prompt_showupstream 'yes'
-# set __fish_git_prompt_color_branch yellow
-
-# # # Status Chars
-# set __fish_git_prompt_char_upstream_equal ''
-# # set __fish_git_prompt_char_dirtystate '⚡ '
-# set __fish_git_prompt_char_stagedstate '→'
-# set __fish_git_prompt_char_stashstate '↩'
-# set __fish_git_prompt_char_upstream_ahead '↑'
-# set __fish_git_prompt_char_upstream_behind '↓'
-
-# function fish_prompt
-#   set last_status $status
-
-#   set_color $fish_color_cwd
-#   printf '%s' (prompt_pwd)
-#   set_color normal
-
-#   printf '%s ' (__fish_git_prompt)
-
-#   set_color normal
-# end
-
-
 # http://zogovic.com/post/37906589287/showing-git-branch-in-fish-shell-prompt
 set fish_git_dirty_color red
 set fish_git_not_dirty_color green
@@ -77,8 +49,8 @@ end
 
 function fish_prompt
   if test -d .git
-    printf '%s@%s %s%s%s:%s> ' (whoami) (hostname|cut -d . -f 1) (set_color $fish_color_cwd) (prompt_pwd) (set_color normal) (parse_git_branch)
+    printf '%s@%s %s%s%s:%s> ' (whoami) (scutil --get ComputerName|cut -d . -f 1) (set_color $fish_color_cwd) (prompt_pwd) (set_color normal) (parse_git_branch)
   else
-    printf '%s@%s %s%s%s> ' (whoami) (hostname|cut -d . -f 1) (set_color $fish_color_cwd) (prompt_pwd) (set_color normal)
+    printf '%s@%s %s%s%s> ' (whoami) (scutil --get ComputerName|cut -d . -f 1) (set_color $fish_color_cwd) (prompt_pwd) (set_color normal)
   end
 end
