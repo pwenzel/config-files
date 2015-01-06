@@ -1,20 +1,20 @@
 set fish_greeting ""
 
-# Include binaries from MAMP
+# Include binaries from MAMP, local Ruby, and local Composer
 # set PATH $PATH /Applications/MAMP/Library/bin/ /Applications/MAMP/bin/php/php5.2.17/bin /Applications/MAMP/bin/php/php5.3.6/bin /Applications/MAMP/bin/php/php5.4.4/bin
-set PATH ~/.gem/ruby/2.0.0/bin ~/.composer/vendor/bin $PATH 
+set PATH ~/.gem/ruby/2.0.0/bin ~/.composer/vendor/bin /Applications/MAMP/Library/bin $PATH
 
 # http://mesmor.com/2012/03/18/akamai-pragma-debug-headers/
 # https://gist.github.com/2710596
 alias akacurl='curl -v -s -o /dev/null -H "accept-encoding: gzip" -H "Pragma: akamai-x-get-cache-key" -H "Pragma: akamai-x-cache-on" -H "Pragma: akamai-x-cache-remote-on" -H "Pragma: akamai-x-get-true-cache-key" ';
 
 # Audio Streams
-alias news="mplayer -playlist http://minnesota.publicradio.org/tools/play/streams/news.pls" # MPR News 
-alias current="mplayer -playlist http://minnesota.publicradio.org/tools/play/streams/the_current.pls" # The Current 
-alias classical="mplayer -playlist http://minnesota.publicradio.org/tools/play/streams/classical.pls" # Classical MPR 
-alias localcurrent="mplayer -playlist http://minnesota.publicradio.org/tools/play/streams/local.pls" # Local Current 
-alias heartland="mplayer -playlist http://minnesota.publicradio.org/tools/play/streams/radio_heartland.pls" # MPR Radio Heartland 
-alias wonderground="mplayer http://wondergroundstream2.publicradio.org/wonderground" # MPR Wonderground Windows Media 
+alias news="mplayer -playlist http://minnesota.publicradio.org/tools/play/streams/news.pls" # MPR News
+alias current="mplayer -playlist http://minnesota.publicradio.org/tools/play/streams/the_current.pls" # The Current
+alias classical="mplayer -playlist http://minnesota.publicradio.org/tools/play/streams/classical.pls" # Classical MPR
+alias localcurrent="mplayer -playlist http://minnesota.publicradio.org/tools/play/streams/local.pls" # Local Current
+alias heartland="mplayer -playlist http://minnesota.publicradio.org/tools/play/streams/radio_heartland.pls" # MPR Radio Heartland
+alias wonderground="mplayer http://wondergroundstream2.publicradio.org/wonderground" # MPR Wonderground Windows Media
 alias choral="mplayer -playlist http://choralstream1.publicradio.org/choral.m3u" # Clasical MPR Choral
 alias wefunk="mplayer -playlist http://www.wefunkradio.com/play/shoutcast.pls" # WEFUNK Radio MP3 64K
 alias sleepbot="mplayer -playlist http://sleepbot.com/ambience/cgi/listen.cgi/listen.pls" # Sleepbot Environmental Broadcast 56K MP3
