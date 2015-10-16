@@ -1,0 +1,5 @@
+{
+    "require": {
+        "laravel/envoy": "~1.0"
+    }
+}
