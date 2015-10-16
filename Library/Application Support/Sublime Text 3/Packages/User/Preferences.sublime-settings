@@ -1,0 +1,17 @@
+{
+	"caret_extra_width": 1,
+	"color_scheme": "Packages/User/SublimeLinter/predawn (SL).tmTheme",
+	"font_options":
+	[
+		"no_round"
+	],
+	"font_size": 15,
+	"highlight_line": true,
+	"ignored_packages":
+	[
+		"Vintage"
+	],
+	"scroll_past_end": true,
+	"sidebar_large": true,
+	"theme": "predawn.sublime-theme"
+}

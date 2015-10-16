@@ -1,0 +1,27 @@
+[
+	{"id": "side-bar-files-open-with",
+		"children":
+		[
+
+			//application 1
+			{
+				"caption": "Marked",
+				"id": "side-bar-files-open-with-marked",
+
+				"command": "side_bar_files_open_with",
+				"args": {
+									"paths": [],
+									"application": "Marked 2.app", // OSX
+									"extensions":"md|markdown|txt",  //any file with these extensions
+									"args":[]
+								},
+				"open_automatically" : false // will close the view/tab and launch the application
+			},
+
+			//separator
+			{"caption":"-"},
+
+
+		]
+	}
+]
