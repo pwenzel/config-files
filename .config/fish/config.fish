@@ -1,56 +1,52 @@
-set fish_greeting ""
+# Path to your oh-my-fish.
+set -g OMF_PATH $HOME/.local/share/omf
 
-# Include binaries from MAMP, local Ruby, and local Composer
-# set PATH $PATH /Applications/MAMP/Library/bin/ /Applications/MAMP/bin/php/php5.2.17/bin /Applications/MAMP/bin/php/php5.3.6/bin /Applications/MAMP/bin/php/php5.4.4/bin
-set PATH ~/.gem/ruby/2.0.0/bin ~/.composer/vendor/bin /Applications/MAMP/Library/bin $PATH
+# Path to your oh-my-fish configuration.
+set -g OMF_CONFIG $HOME/.config/omf
 
-# http://mesmor.com/2012/03/18/akamai-pragma-debug-headers/
-# https://gist.github.com/2710596
-alias akacurl='curl -v -s -o /dev/null -H "accept-encoding: gzip" -H "Pragma: akamai-x-get-cache-key" -H "Pragma: akamai-x-cache-on" -H "Pragma: akamai-x-cache-remote-on" -H "Pragma: akamai-x-get-true-cache-key" ';
+### Configuration required to load oh-my-fish ###
+# Note: Only add configurations that are required to be set before oh-my-fish is loaded.
+# For common configurations, we advise you to add them to your $OMF_CONFIG/init.fish file or
+# to create a custom plugin instead.
 
-# Audio Streams
-alias news="mplayer -playlist http://minnesota.publicradio.org/tools/play/streams/news.pls" # MPR News
-alias current="mplayer -playlist http://minnesota.publicradio.org/tools/play/streams/the_current.pls" # The Current
-alias classical="mplayer -playlist http://minnesota.publicradio.org/tools/play/streams/classical.pls" # Classical MPR
-alias localcurrent="mplayer -playlist http://minnesota.publicradio.org/tools/play/streams/local.pls" # Local Current
-alias heartland="mplayer -playlist http://minnesota.publicradio.org/tools/play/streams/radio_heartland.pls" # MPR Radio Heartland
-alias wonderground="mplayer http://wondergroundstream2.publicradio.org/wonderground" # MPR Wonderground Windows Media
-alias choral="mplayer -playlist http://choralstream1.publicradio.org/choral.m3u" # Clasical MPR Choral
-alias wefunk="mplayer -playlist http://www.wefunkradio.com/play/shoutcast.pls" # WEFUNK Radio MP3 64K
-alias sleepbot="mplayer -playlist http://sleepbot.com/ambience/cgi/listen.cgi/listen.pls" # Sleepbot Environmental Broadcast 56K MP3
-alias groovesalad="mplayer -playlist http://somafm.com/groovesalad130.pls" # SomaFM Groove Salad iTunes AAC 128K
-alias dronezone="mplayer -playlist http://somafm.com/dronezone130.pls" # SomaFM Drone Zone iTunes AAC 128K
-alias lush="mplayer -playlist http://somafm.com/lush130.pls" # SomaFM Lush iTunes AAC 128K
-alias sonicuniverse="mplayer -playlist http://somafm.com/sonicuniverse.pls" # SomaFM Sonic Universe iTunes AAC 128K
-alias 480min="mplayer -playlist http://somafm.com/480min64.pls" # SomaFM 480 Minutes iTunes AAC Plus 64K
-alias digitalis="mplayer -playlist http://somafm.com/digitalis.pls" # SomaFM Digitalis iTunes 128K
-alias indiepop="mplayer -playlist http://somafm.com/indiepop130.pls" # SomaFM Indie Pop Rocks 128K AAC
-alias poptron="mplayer -playlist http://somafm.com/poptron.pls" # SomaFM PopTron iTunes 128K
-alias covers="mplayer -playlist http://somafm.com/covers.pls" # SomaFM Covers iTunes 128K
-alias underground80s="mplayer -playlist http://somafm.com/u80s130.pls" # SomaFM Underground 80s iTunes 128K AAC
-alias secretagent="mplayer -playlist http://somafm.com/secretagent130.pls" # SomaFM Secret Agent iTunes 128K AAC
-alias wmcn="mplayer -playlist http://216.250.175.13:8000/listen.pls" # WMCN 91.7 - http://wmcn.tumblr.com/
+# Load oh-my-fish configuration.
+source $OMF_PATH/init.fish
 
+# Composer Global Binaries
+set -g PATH $HOME/.composer/vendor/bin $PATH
 
-# http://zogovic.com/post/37906589287/showing-git-branch-in-fish-shell-prompt
-set fish_git_dirty_color red
-set fish_git_not_dirty_color green
+# Make Homebrew and RBENV play nice in Fish Shell
+# https://coderwall.com/p/jfj4rg/getting-fish-rbenv-homebrew-playing-nice-together
+# https://github.com/oh-my-fish/plugin-rbenv
+set default_path /usr/bin /usr/sbin /bin /sbin
+set homebrew /usr/local/bin /usr/local/sbin
+set brew_rbenv "/usr/local/var/rbenv/shims"
+set -gx PATH $homebrew $brew_rbenv $default_path
+set -gx RBENV_ROOT /usr/local/var/rbenv
 
-function parse_git_branch
-  set -l branch (git branch 2> /dev/null | grep -e '\* ' | sed 's/^..\(.*\)/\1/')
-  set -l git_diff (git diff)
+# Homebrew Github API Tokens (Avoids rate limiting)
+# http://stackoverflow.com/questions/20130681/setting-github-api-token-for-homebrew
+# https://github.com/settings/tokens
+set -gx HOMEBREW_GITHUB_API_TOKEN changeme
 
-  if test -n "$git_diff"
-    echo (set_color $fish_git_dirty_color)$branch(set_color normal)
-  else
-    echo (set_color $fish_git_not_dirty_color)$branch(set_color normal)
-  end
-end
+# RBENV
+# https://github.com/sstephenson/rbenv/issues/195
+# Use `rbenv rehash` if new gems are installed
+# http://stackoverflow.com/questions/20985512/bundler-not-found-using-fish-shell-w-rbenv
+set PATH $HOME/.rbenv/bin $PATH
+set PATH $HOME/.rbenv/shims $PATH
+rbenv rehash >/dev/null ^&1
 
-function fish_prompt
-  if test -d .git
-    printf '%s@%s %s%s%s:%s> ' (whoami) (scutil --get ComputerName|cut -d . -f 1) (set_color $fish_color_cwd) (prompt_pwd) (set_color normal) (parse_git_branch)
-  else
-    printf '%s@%s %s%s%s> ' (whoami) (scutil --get ComputerName|cut -d . -f 1) (set_color $fish_color_cwd) (prompt_pwd) (set_color normal)
-  end
-end
+# Pushover.net CLI Environment Variables
+# https://www.npmjs.com/package/pushover-cli 
+# @example `pushover "hello world"`
+set -x PUSHOVER_TOKEN changeme
+set -x PUSHOVER_USER changeme
+
+# Streaming Audio Stations
+# @example `news`, `classical`, `current`, `wefunk` 
+source $HOME/.config/fish/streaming-audio.fish
+
+# Akamai Debugger
+# @example`akacurl http://www.any-akamai-hosted-domain.com
+source $HOME/.config/fish/akamai-debugger.fish

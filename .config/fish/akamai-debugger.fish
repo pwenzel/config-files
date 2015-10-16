@@ -1,0 +1,1 @@
+alias akacurl='curl -v -s -o /dev/null -H "accept-encoding: gzip" -H "Pragma: akamai-x-get-cache-key" -H "Pragma: akamai-x-cache-on" -H "Pragma: akamai-x-cache-remote-on" -H "Pragma: akamai-x-get-true-cache-key" ';
