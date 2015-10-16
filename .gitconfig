@@ -3,5 +3,3 @@
 	postBuffer = 524288000
 [color]
 	ui = true
-[alias]
-	ftp = !git-ftp.py
