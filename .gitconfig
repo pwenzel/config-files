@@ -1,5 +1,0 @@
-[http]
-	sslverify = true
-	postBuffer = 524288000
-[color]
-	ui = true
