@@ -1,17 +1,17 @@
 {
-	"caret_extra_width": 1,
-	"color_scheme": "Packages/User/SublimeLinter/predawn (SL).tmTheme",
-	"font_options":
-	[
-		"no_round"
-	],
+	"color_scheme": "Packages/Predawn/predawn.tmTheme",
+	"scroll_past_end": true,
+	"caret_style": "wide",
+	"spell_check": true,
 	"font_size": 15,
 	"highlight_line": true,
 	"ignored_packages":
 	[
-		"Vintage"
+	"Vintage"
 	],
-	"scroll_past_end": true,
-	"sidebar_large": true,
-	"theme": "predawn.sublime-theme"
+	"predawn_tabs_medium": true,
+	"theme": "predawn-DEV.sublime-theme",
+	"trim_trailing_white_space_on_save": true,
+	"line_padding_bottom": 1,
+	"line_padding_top": 1
 }
