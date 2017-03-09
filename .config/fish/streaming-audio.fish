@@ -20,5 +20,5 @@ alias underground80s="mplayer -msgcolor -playlist http://somafm.com/u80s130.pls"
 alias secretagent="mplayer -msgcolor -playlist http://somafm.com/secretagent130.pls" # SomaFM Secret Agent iTunes 128K AAC
 alias wmcn="mplayer -msgcolor -playlist http://216.250.175.13:8000/listen.pls" # WMCN 91.7 - http://wmcn.tumblr.com/
 alias kfai="mplayer -msgcolor -playlist http://kfai.org/sites/default/stream/kfai-live.pls" # KFAI 90.3 http://kfai.org/
-alias lanueva="mplayer -msgcolor -playlist http://stream.abacast.net/playlist/sbsystems-wodafmaac-ib-64.m3u" # WODA-FM San Juan, PR http://reggaeton947.com
+alias reggaeton="mplayer -msgcolor -playlist http://stream.abacast.net/playlist/sbsystems-wodafmaac-ib-64.m3u" # WODA-FM San Juan, PR http://reggaeton947.com
 alias wksq="mplayer -msgcolor -playlist http://stream.abacast.net/playlist/sbsystems-wskqfmaac-ib-64.m3u" # WKSQ-FM http://lamega.com
