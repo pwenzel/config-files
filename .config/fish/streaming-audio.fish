@@ -20,6 +20,8 @@ alias secretagent="mpv https://somafm.com/secretagent130.pls" # SomaFM Secret Ag
 alias kfai="mpv https://kfai.org/sites/default/stream/kfai-live.pls" # KFAI 90.3 http://kfai.org/
 alias reggaeton="mpv http://stream.abacast.net/playlist/sbsystems-wodafmaac-ib-64.m3u" # WODA-FM San Juan, PR http://reggaeton947.com
 alias wksq="mpv http://stream.abacast.net/playlist/sbsystems-wskqfmaac-ib-64.m3u" # WKSQ-FM http://lamega.com
+alias kmoj="mpv http://skyradio.streamguys1.com/live" # 89.9 KMOJ http://kmojfm.com
+alias theice="mpv http://skyradio.streamguys1.com/theice-aac" # KMOJ The ICE HD2 http://kmojfm.com
 
 function stations
 	echo "news";
@@ -43,4 +45,6 @@ function stations
 	echo "kfai";
 	echo "reggaeton";
 	echo "wksq";
+	echo "kmoj";
+	echo "theice";
 end
